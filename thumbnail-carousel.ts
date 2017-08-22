@@ -6,7 +6,7 @@ class ThumbnailCarousel {
         if (args.columns) {
             this.columns = args.columns;
         } else {
-            this.columns = 3;
+            this.columns = 4;
         }
 
         if (args.rows) {
@@ -73,6 +73,11 @@ class ThumbnailCarousel {
     }
 
     updateSize() {
+        // update container width and carousel width
+        this.containerWidth = this.container.offsetWidth;
+        // carousel is wider than sum of groups to prevent row break on window resize
+        this.carouselWidth = (this.totalGroups + 1) * this.containerWidth;
+
         // select all thumbnail groups
         let groups = document.querySelectorAll('#thumbnail-carousel-container .thumbnail-group'),
             items = document.querySelectorAll('#thumbnail-carousel-container .thumbnail-group li'),
@@ -83,15 +88,10 @@ class ThumbnailCarousel {
             itemMargin = (10 / (2 * this.columns)), // math for gutters
             thumbnailHeight = 0.9 * (groupWidth / this.columns);
 
-        // update ibox width and carousel width
-        this.containerWidth = this.container.offsetWidth;
-        this.carouselWidth = this.totalGroups * (this.containerWidth + groupPadding);
-
-        // set carousel left position
-        this.leftPos = -this.containerWidth * this.pageIndex;
-
         // update carousel width
         this.carousel.style.width = this.carouselWidth;
+        // set carousel left position
+        this.leftPos = -this.containerWidth * this.index;
         // update carousel position
         this.carousel.style.left = this.leftPos;
 
@@ -167,11 +167,9 @@ class ThumbnailCarousel {
     }
 
     carouselEvents() {
-        console.log('hi');
-        let body = document.querySelector('body'),
-            carouselNav = document.querySelectorAll('#thumbnail-carousel-container .thumbnail-carousel-nav');
+        let carouselNav = document.querySelectorAll('#thumbnail-carousel-container .thumbnail-carousel-nav');
 
-        body.onresize = () => {
+        window.onresize = () => {
             this.updateSize();
         }
 
@@ -198,7 +196,5 @@ let carousel = new ThumbnailCarousel({
         'img/10.jpg',
         'img/11.jpg'
     ],
-    container: '#container',
-    columns: 5,
-    rows: 2
+    container: '#container'
 });
