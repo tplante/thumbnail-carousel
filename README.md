@@ -18,7 +18,7 @@ A lightweight carousel that scrolls through tiled images
     });
 ```
 
-## Arguments
+## Carousel parameters
 * data: the data argument takes an array of images, which can be local files in your project or images from the web
 * container: the class or id of your carousel container element
 * columns (optional, default 4): the number of thumbnails you want in each row of your carousel
