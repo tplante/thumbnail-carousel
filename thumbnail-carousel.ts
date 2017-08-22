@@ -167,6 +167,7 @@ class ThumbnailCarousel {
     }
 
     carouselEvents() {
+        console.log('hi');
         let body = document.querySelector('body'),
             carouselNav = document.querySelectorAll('#thumbnail-carousel-container .thumbnail-carousel-nav');
 
