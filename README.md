@@ -8,14 +8,14 @@ A lightweight carousel that scrolls through tiled images
 2. create a container for your carousel using a block-style html element (e.g., div or section)
 3. create an instance of the ThumbnailCarousel object like so:
 
-`
+```javascript
     let carousel = new ThumbnailCarousel({
         data: ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg','img/6.jpg','img/7.jpg','img/8.jpg','img/9.jpg','img/10.jpg','img/11.jpg'],
         container: '#container',
         columns: 5,
         rows: 1
     });
-`
+```
 
 # Arguments
 * data: the data argument takes an array of images, which can be local files in your project or images from the web
