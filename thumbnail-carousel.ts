@@ -69,8 +69,6 @@ class ThumbnailCarousel {
                     `;
                 }
             }
-
-            this.index += 1;
         }
     }
 
@@ -112,11 +110,75 @@ class ThumbnailCarousel {
         }
     }
 
+    navigate(el) {
+        let navLeft = document.querySelector('#thumbnail-carousel-container .thumbnail-carousel-nav-left'),
+            navRight = document.querySelector('#thumbnail-carousel-container .thumbnail-carousel-nav-right');
+
+        // if flagged
+        if (this.clickDisabled) {
+            return; // prevent navigation
+        } else {
+            // if left arrow clicked and not first group
+            if (el.classList.contains('thumbnail-carousel-nav-left') && this.index > 0) {
+                // decrement page index
+                this.index -= 1;
+            } else if (el.classList.contains('thumbnail-carousel-nav-right') && this.index < (this.totalGroups - 1)) {
+                // increment page index
+                this.index += 1;
+            }
+
+            if (this.index === 0 && this.index < (this.totalGroups - 1)) {
+                // blur left arrow
+                navLeft.style.opacity = 0.1;
+                navLeft.style.cursor = 'not-allowed';
+                // show right arrow
+                navRight.style.opacity = 1;
+                navRight.style.cursor = 'pointer';
+            // if last group
+            } else if (this.index === (this.totalGroups - 1)) {
+                // show left arrow
+                navLeft.style.opacity = 1;
+                navLeft.style.cursor = 'pointer';
+                // blur right arrow
+                navRight.style.opacity = 0.1;
+                navRight.style.cursor = 'not-allowed';
+            } else {
+                // show both arrows
+                navLeft.style.opacity = 1;
+                navLeft.style.cursor = 'pointer';
+                navRight.style.opacity = 1;
+                navRight.style.cursor = 'pointer';
+            }
+
+            // set carousel left position
+            this.leftPos = -this.containerWidth * this.index;
+
+            // shift carousel
+            this.carousel.style.left = this.leftPos;
+
+            // disable navigation while transitioning
+            this.clickDisabled = true;
+
+            // re-enable navigation after transition
+            setTimeout(function() {
+                this.clickDisabled = false;
+            }.bind(this), 800);
+        }
+    }
+
     carouselEvents() {
-        let body = document.querySelector('body');
+        let body = document.querySelector('body'),
+            carouselNav = document.querySelectorAll('#thumbnail-carousel-container .thumbnail-carousel-nav');
 
         body.onresize = () => {
             this.updateSize();
+        }
+
+        // on L/R arrow click
+        for (let i=0; i<carouselNav.length; i++) {
+            carouselNav[i].addEventListener('click', () => {
+                this.navigate(carouselNav[i]);
+            });
         }
     }
 }
