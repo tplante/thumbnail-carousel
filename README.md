@@ -4,9 +4,10 @@ A lightweight carousel that scrolls through tiled images
 ![screenshot from 2017-08-22 16-07-19](https://user-images.githubusercontent.com/8583137/29591583-31d076d6-8754-11e7-9c4c-adad71a4e6b6.png)
 
 ## Instructions
-1. include thumbnail-carousel.css and thumbnail-carousel.min.js in your project (files located in the /dist folder)
-2. create a container for your carousel using a block-style html element (e.g., div or section)
-3. create an instance of the ThumbnailCarousel object like so:
+1. include files from the dist folder in your project
+2. link to thumbnail-carousel.css and thumbnail-carousel.min.js on a page where you would like to include a carousel
+3. create a container for your carousel using a block-style html element (e.g., div or section)
+4. create an instance of the ThumbnailCarousel object like so:
 
 ```javascript
     let carousel = new ThumbnailCarousel({
