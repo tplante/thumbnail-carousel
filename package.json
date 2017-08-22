@@ -1,0 +1,38 @@
+{
+  "name": "thumbnail-carousel",
+  "version": "0.0.1",
+  "description": "A lightweight carousel that scrolls through tiled images",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tplante/thumbnail-carousel.git"
+  },
+  "keywords": [
+    "carousel",
+    "slider",
+    "thumbnail",
+    "tiles",
+    "images",
+    "collage"
+  ],
+  "author": "Taylor Plante",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tplante/thumbnail-carousel/issues"
+  },
+  "homepage": "https://github.com/tplante/thumbnail-carousel#readme",
+  "dependencies": {
+    "typescript": "^2.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.1",
+    "gulp-uglify": "^3.0.0"
+  }
+}

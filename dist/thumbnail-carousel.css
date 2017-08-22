@@ -1,0 +1,73 @@
+#thumbnail-carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%; }
+  #thumbnail-carousel-container .thumbnail-carousel-nav {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background-color: #D5D6D2;
+    cursor: pointer;
+    z-index: 3;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out; }
+    #thumbnail-carousel-container .thumbnail-carousel-nav .icon {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-image: url(sprite.svg); }
+    #thumbnail-carousel-container .thumbnail-carousel-nav .icon-chevron-right {
+      width: 19px;
+      height: 28px;
+      background-position: 0 0; }
+    #thumbnail-carousel-container .thumbnail-carousel-nav .icon-chevron-left {
+      width: 21px;
+      height: 28px;
+      background-position: -44px 0; }
+  #thumbnail-carousel-container .thumbnail-carousel-nav:hover {
+    background-color: #dfe0db; }
+  #thumbnail-carousel-container .thumbnail-carousel-nav-left {
+    left: 0;
+    opacity: 0.1;
+    cursor: not-allowed; }
+  #thumbnail-carousel-container .thumbnail-carousel-nav-right {
+    right: 0; }
+  #thumbnail-carousel-container .thumbnail-carousel {
+    position: relative;
+    left: 0;
+    overflow: hidden;
+    content: "";
+    display: table;
+    clear: both;
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out; }
+  #thumbnail-carousel-container .thumbnail-group {
+    float: left;
+    padding: 0 50px;
+    -webkit-transition: 0.8s ease-in-out;
+    -moz-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out; }
+    #thumbnail-carousel-container .thumbnail-group ul {
+      margin: 0;
+      -webkit-padding-start: 0;
+      padding: 0; }
+      #thumbnail-carousel-container .thumbnail-group ul li {
+        position: relative;
+        float: left;
+        list-style: none; }
+        #thumbnail-carousel-container .thumbnail-group ul li .thumbnail-img {
+          position: relative;
+          overflow: hidden;
+          z-index: 1; }
+          #thumbnail-carousel-container .thumbnail-group ul li .thumbnail-img img {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            height: 100%; }

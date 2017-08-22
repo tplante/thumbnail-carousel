@@ -1,0 +1,95 @@
+$lightGray: #D5D6D2;
+
+@mixin transitions($duration) {
+    -webkit-transition: $duration ease-in-out;
+    -moz-transition: $duration ease-in-out;
+    transition: $duration ease-in-out;
+}
+
+#thumbnail-carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    .thumbnail-carousel-nav {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 100%;
+        background-color: $lightGray;
+        cursor: pointer;
+        z-index: 3;
+        @include transitions(.2s);
+
+        .icon {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-image: url(sprite.svg);
+        }
+        .icon-chevron-right {
+            width: 19px;
+            height: 28px;
+            background-position: 0 0;
+        }
+        .icon-chevron-left {
+            width: 21px;
+            height: 28px;
+            background-position: -44px 0;
+        }
+    }
+    .thumbnail-carousel-nav:hover {
+        background-color: #dfe0db;
+    }
+    .thumbnail-carousel-nav-left {
+        left: 0;
+        opacity: 0.1;
+        cursor: not-allowed;
+    }
+    .thumbnail-carousel-nav-right {
+        right: 0;
+    }
+    .thumbnail-carousel {
+        position: relative;
+        left: 0;
+        overflow: hidden;
+        content: "";
+        display: table;
+        clear: both;
+        @include transitions(.8s);
+    }
+    .thumbnail-group {
+        float: left;
+        padding: 0 50px;
+        @include transitions(.8s);
+
+        ul {
+            margin: 0;
+            -webkit-padding-start: 0;
+            padding: 0;
+
+            li {
+                position: relative;
+                float: left;
+                list-style: none;
+
+                .thumbnail-img {
+                    position: relative;
+                    overflow: hidden;
+                    z-index: 1;
+                
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
