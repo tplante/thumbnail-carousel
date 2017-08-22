@@ -5,7 +5,7 @@ A lightweight carousel that scrolls through tiled images
 
 ## Instructions
 1. include files from the dist folder in your project
-2. link to thumbnail-carousel.css and thumbnail-carousel.min.js on a page where you would like to include a carousel
+2. link to *thumbnail-carousel.css* and *thumbnail-carousel.min.js* on a page where you would like to include a carousel
 3. create a container for your carousel using a block-style html element (e.g., div or section)
 4. create an instance of the ThumbnailCarousel object between script tags or in a separate js file, like so:
 
@@ -19,7 +19,7 @@ A lightweight carousel that scrolls through tiled images
 ```
 
 ## Example
-If you run into any problems, try downloading sample.html and opening it in your browser. You'll also need the img directory and dist directory, as it references files there
+If you run into any problems, try downloading *sample.html* and opening it in your browser. You'll also need the /img directory and /dist directory, as it references files there
 
 ## Carousel parameters
 * **data**: the data argument takes an array of images, which can be local files in your project or images from the web
